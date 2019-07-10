@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="post">
+					<!--<script language="JavaScript" src="scripts/gen_validatorv31.js" type="text/javascript"></script>
+					<h1>Contact us</h1>
+					<form method="POST" name="contactform" action="{% url 'send_email_handler' tit=title,em=email,te=text %}"> 
+						<p>
+							<label for='title'>Título:</label> <br>
+							<input type="text" name="name" value={{post.title}}> <br>
+						</p>
+						<p>
+							<label for='email'>Dirección de email:</label><br>
+							<input type="text" name="email" value={{user.email}}> <br>
+						</p>
+						<p>
+							<label for='message'>Mensaje:</label><br>
+							<textarea name="message">{{post.text}}</textarea>
+						</p>
+						<input type="submit" value="Enviar"><br>
+					</form>
+					<form>
+						<button type="submit" formaction= "{% url 'post_detail' pk=post.pk %}">Atrás</button>
+					</form>
+					<script language="JavaScript">
+						// Code for validating the form
+						// Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
+						// for details
+						var frmvalidator  = new Validator("contactform");
+						frmvalidator.addValidation("title","req","Por favor indica un título"); 
+						frmvalidator.addValidation("email","req","Por favor, indica su email"); 
+						frmvalidator.addValidation("email","email","Por favor, indique un email válido"); 
+					</script>-->
+					<form method="post">
+					    {% csrf_token %}
+					    {{ form.as_p }}
+					    <div class="form-actions">
+					      <button type="submit">Send</button>
+					    </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--
+Sample code from:
+http://www.html-form-guide.com/contact-form/php-email-contact-form.html
+-->
+{% endblock %}

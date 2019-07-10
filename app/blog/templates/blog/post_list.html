@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+				<script>
+					document.getElementById("home").className="active";
+				</script>
+				{% for post in posts %}
+				    <div class="post">
+				        <div class="date">
+				            <p>Creado {{ post.created_date }}</p>
+				        </div>
+				        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+				        <p>{{ post.text|linebreaksbr }}</p>
+				    </div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

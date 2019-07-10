@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                <script>
+            		document.getElementById("new_post").className="active";
+            	</script>
+                <h1>Editando noticia</h1>
+                <form method="post" class="post-form" enctype="multipart/form-data">
+                	{% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Guardar</button>
+                </form>
+                <!--
+                {% if post.img %}
+                	<p>Imagen subida en: <a href="{{post.img}}">{{post.img}}</a></p>
+                {% endif %}-->
+            </div>
+        </div>
+    </div>
+{% endblock %}

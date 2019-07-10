@@ -1,0 +1,22 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            	<script>
+			        document.getElementById("login_page").className="active";
+			    </script>
+				<h2>Inicia sesión</h2>
+				<form method="post">
+					{% csrf_token %}
+					{{ form.as_p }}
+				<button type="submit">Iniciar sesión</button>
+				</form>
+
+				<a href="{% url 'password_reset' %}">¿Ha olvidado su contraseña?</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
